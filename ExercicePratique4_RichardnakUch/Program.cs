@@ -212,6 +212,8 @@ namespace ExercicePratique4_RichardnakUCH
             etudiant6.adresse.codePostal = "Y3E T3R ";
             etudiant7.adresse.codePostal = "Y3E T3R ";
             etudiant8.adresse.codePostal = "Y3E T3R ";
+
+            Console.WriteLine("Ya yeeeeeeeeeeeeeeeeeeeeeeeeeet");
         }
     }
 }
