@@ -33,24 +33,6 @@ namespace ExercicePratique4_RichardnakUCH
 
         }
 
-        //public static Array sexRandom(int length)
-        //{
-        //    string sex = "MF";
-        //    Random rdnsexe = new Random();
-        //    int sexs = rdnsexe.Next(maxValue);
-
-        //    return sex[sexs];
-        //}
-        public static char GetRandomGender()
-        {
-            char[] genders = { 'M', 'F' };
-            Random randGender = new Random();
-            return genders[randGender.Next(genders.Length)];
-        }
-
-        //    return sex[sexRandom];
-        //}
-
         //public int valProgramme(int p)
         //{
         //    Random random = new Random();
@@ -58,20 +40,21 @@ namespace ExercicePratique4_RichardnakUCH
         //    return programme;
         //}
 
-        //static void TabSexEtudiant(char x)
-        //{
-        //    if (sexetudiant == M)
-        //        Console.Write(Etudiant1);
-        //    else
-        //        Console.Write(Etudiant1);
-        //}
-
-        static void TabProgrammeEtudiant(int prog)
+        public static void TabSexEtudiant()
         {
-            
+            if ( == "M")
+                Console.Write(Etudiant1);
+            else
+                Console.Write(Etudiant1);
         }
 
+        //static void TabProgrammeEtudiant(int prog)
+        //{
+
+        //} 
     }
+         // FIN STRUCT ETUDIANT
+         // FIN STRUCT ETUDIANT
     class Program
     {
         static void Main(string[] args)
@@ -84,6 +67,7 @@ namespace ExercicePratique4_RichardnakUCH
             Etudiant etudiant6;
             Etudiant etudiant7;
             Etudiant etudiant8;
+
 
             //              COMMENCEMENT DE IDENTIFICATEURS
             //              COMMENCEMENT DE IDENTIFICATEURS
@@ -113,25 +97,21 @@ namespace ExercicePratique4_RichardnakUCH
             //              COMMENCEMENT DE SEXE
 
 
-
-            //string sex = "MF";
-            //int firstLetter = 0;
-            //int lastLetter = 0;
-            //int sexRandom;
-            //firstLetter = Convert.ToInt32(sex.Substring(0, 0));
-            //lastLetter = Convert.ToInt32(sex.Substring(1, 1));
-            //Random rdnsexe = new Random();
-            //sexRandom = rdnsexe.Next(firstLetter, lastLetter);
-
-            //Console.WriteLine(sexRandom);
-
-            //etudiant1.sexe = Convert.ToChar(sexRandom);
-
+            Random rdmSexe = new Random();
+            char[] sexes = { 'M', 'F' };
+            
+            etudiant1.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant2.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant3.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant8.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant4.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant5.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant6.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            etudiant7.sexe = sexes[rdmSexe.Next(sexes.Length)];
+                             
 
             //              COMMENCEMENT DE PROGRAMME
             //              COMMENCEMENT DE PROGRAMME
-
-            etudiant1.sexe = Get
 
 
             //              COMMENCEMENT DE LA DATE DE NAISSANCE
@@ -213,7 +193,15 @@ namespace ExercicePratique4_RichardnakUCH
             etudiant7.adresse.codePostal = "Y3E T3R ";
             etudiant8.adresse.codePostal = "Y3E T3R ";
 
-            Console.WriteLine("Ya yeeeeeeeeeeeeeeeeeeeeeeeeeet");
+            Console.WriteLine(etudiant1.sexe);
+            Console.WriteLine(etudiant2.sexe);
+            Console.WriteLine(etudiant3.sexe);
+            Console.WriteLine(etudiant4.sexe);
+            Console.WriteLine(etudiant5.sexe);
+            Console.WriteLine(etudiant6.sexe);
+            Console.WriteLine(etudiant7.sexe);
+            Console.WriteLine(etudiant8.sexe);
+
         }
     }
 }
