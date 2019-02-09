@@ -1,0 +1,7 @@
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\bin\Debug\ExercicePratique4_RichardnakUch.exe.config
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\bin\Debug\ExercicePratique4_RichardnakUch.exe
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\bin\Debug\ExercicePratique4_RichardnakUch.pdb
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\obj\Debug\ExercicePratique4_RichardnakUch.csprojAssemblyReference.cache
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\obj\Debug\ExercicePratique4_RichardnakUch.csproj.CoreCompileInputs.cache
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\obj\Debug\ExercicePratique4_RichardnakUch.exe
+C:\Users\Hey there\Desktop\Visual Studio Programs\ExercicePratique4_RichardnakUch\ExercicePratique4_RichardnakUch\obj\Debug\ExercicePratique4_RichardnakUch.pdb
