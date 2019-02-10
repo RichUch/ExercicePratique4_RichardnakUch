@@ -11,8 +11,8 @@ namespace ExercicePratique4_RichardnakUCH
         public string nom;
         public string prenom;
 
-        public char sexe; //@@@@@@@@
-        public int programme; //@@@@@@@@
+        public char sexe;
+        public int programme; 
 
         public Date dateNaissance;
         public Adresse adresse;
@@ -33,20 +33,13 @@ namespace ExercicePratique4_RichardnakUCH
 
         }
 
-        //public int valProgramme(int p)
+        //public static void TabSexEtudiant()
         //{
-        //    Random random = new Random();
-        //    int rndProgramme = random.Next(1, 401);
-        //    return programme;
+        //    if ( == "M")
+        //        Console.Write(Etudiant1);
+        //    else
+        //        Console.Write(Etudiant1);
         //}
-
-        public static void TabSexEtudiant()
-        {
-            if ( == "M")
-                Console.Write(Etudiant1);
-            else
-                Console.Write(Etudiant1);
-        }
 
         //static void TabProgrammeEtudiant(int prog)
         //{
@@ -55,6 +48,7 @@ namespace ExercicePratique4_RichardnakUCH
     }
          // FIN STRUCT ETUDIANT
          // FIN STRUCT ETUDIANT
+
     class Program
     {
         static void Main(string[] args)
@@ -100,6 +94,8 @@ namespace ExercicePratique4_RichardnakUCH
             Random rdmSexe = new Random();
             char[] sexes = { 'M', 'F' };
             
+
+            // Déclaration des sexes
             etudiant1.sexe = sexes[rdmSexe.Next(sexes.Length)];
             etudiant2.sexe = sexes[rdmSexe.Next(sexes.Length)];
             etudiant3.sexe = sexes[rdmSexe.Next(sexes.Length)];
@@ -108,11 +104,25 @@ namespace ExercicePratique4_RichardnakUCH
             etudiant5.sexe = sexes[rdmSexe.Next(sexes.Length)];
             etudiant6.sexe = sexes[rdmSexe.Next(sexes.Length)];
             etudiant7.sexe = sexes[rdmSexe.Next(sexes.Length)];
-                             
+
 
             //              COMMENCEMENT DE PROGRAMME
             //              COMMENCEMENT DE PROGRAMME
 
+            Random rdmProgramme = new Random();
+            int valProgramme = rdmProgramme.Next(1, 401);
+
+
+            // Déclaration des programmes
+            etudiant1.programme = rdmProgramme.Next(valProgramme);
+            etudiant2.programme = rdmProgramme.Next(valProgramme);
+            etudiant3.programme = rdmProgramme.Next(valProgramme);
+            etudiant4.programme = rdmProgramme.Next(valProgramme);
+            etudiant5.programme = rdmProgramme.Next(valProgramme);
+            etudiant6.programme = rdmProgramme.Next(valProgramme);
+            etudiant7.programme = rdmProgramme.Next(valProgramme);
+            etudiant8.programme = rdmProgramme.Next(valProgramme);
+            
 
             //              COMMENCEMENT DE LA DATE DE NAISSANCE
             //              COMMENCEMENT DE LA DATE DE NAISSANCE
@@ -201,6 +211,15 @@ namespace ExercicePratique4_RichardnakUCH
             Console.WriteLine(etudiant6.sexe);
             Console.WriteLine(etudiant7.sexe);
             Console.WriteLine(etudiant8.sexe);
+
+            Console.WriteLine(etudiant1.programme);
+            Console.WriteLine(etudiant2.programme);
+            Console.WriteLine(etudiant3.programme);
+            Console.WriteLine(etudiant4.programme);
+            Console.WriteLine(etudiant5.programme);
+            Console.WriteLine(etudiant6.programme);
+            Console.WriteLine(etudiant7.programme);
+            Console.WriteLine(etudiant8.programme);
 
         }
     }
