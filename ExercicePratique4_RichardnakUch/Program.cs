@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExercicePratique4_RichardnakUCH
 {
-    public struct Etudiant
+    // STRUCTURE ÉTUDIANT
+    public struct EtudiantDuCollege
     {
         public string nom;
         public string prenom;
@@ -17,6 +18,7 @@ namespace ExercicePratique4_RichardnakUCH
         public Date dateNaissance;
         public Adresse adresse;
 
+        // STRUCTURE ADDRESSE
         public struct Adresse
         {
             public int numero;
@@ -25,67 +27,188 @@ namespace ExercicePratique4_RichardnakUCH
             public string codePostal;
         }
 
+        // STRUCTURE DATE
         public struct Date
         {
             public int mois;
             public int jour;
             public int annee;
-
         }
-
-        //public static void TabSexEtudiant()
-        //{
-        //    if ( == "M")
-        //        Console.Write(Etudiant1);
-        //    else
-        //        Console.Write(Etudiant1);
-        //}
-
-        //static void TabProgrammeEtudiant(int prog)
-        //{
-
-        //} 
     }
          // FIN STRUCT ETUDIANT
-         // FIN STRUCT ETUDIANT
+
 
     class Program
     {
+        // MÉTHODE POUR CLASSER LE SEXE DES ÉTUDIANTS
+        static void TabSexEtudiant(EtudiantDuCollege[] etudiants)
+        {   
+            // SI LES ÉLÈVES SONT MALES
+            Console.WriteLine("=========== SECTION DES ÉLÈVES MALES ===========  \n");
+            for (int i = 0; i < etudiants.Length; i++)
+            {
+                if (etudiants[i].sexe == 'M')
+                {
+                    Console.WriteLine("L'élève '" + etudiants[i].nom + etudiants[i].prenom + "' est un élève male. \n");
+                }
+            }
+            // SI LES ÉLÈVES SONT FEMELLES
+            Console.WriteLine("=========== SECTION DES ÉLÈVES FEMELLES =========== \n");
+            for (int i = 0; i < etudiants.Length; i++)
+            {
+                if (etudiants[i].sexe == 'F')
+                {
+                    Console.WriteLine("L'élève '" + etudiants[i].nom + etudiants[i].prenom + "' est une élève femelle.\n");
+                }
+            }
+            // POUR CRÉER DE L'ESPACEMENT
+            Console.WriteLine("\n \n \n");
+        }
+
+
+        // MÉTHODE POUR CLASSER LE PROGRAMME DES ÉTUDIANTS
+        static void TabProgrammeEtudiant(EtudiantDuCollege[] tabEtudiants)
+        {
+            int borne1 = 0;
+            int borne2 = 0;
+
+            // DEMANDE DES BORNES DES PROGRAMMES
+            Console.WriteLine("Entrer les 2 bornes pour la limite des programmes \n");
+            Console.Write("Borne 1 : ");
+            borne1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Borne 2 : ");
+            borne2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\n");
+
+            // SI LES ÉLÈVES SONT PARMIS LES BORNES
+            Console.WriteLine("=========== SECTION DES ÉLÈVES PARMIS LES BORNES de " + borne1 + " et " + borne2 + " ===========  \n");
+            for (int i = 0; i < tabEtudiants.Length; i++)
+            {
+                if (tabEtudiants[i].programme >= borne1  && tabEtudiants[i].programme <= borne2)
+                {
+                    Console.WriteLine("Le programme de l'élève '" + tabEtudiants[i].nom + tabEtudiants[i].prenom + ": " + tabEtudiants[i].programme +  "' est parmis les 2 bornes \n");
+                }
+            }
+
+            // SI LES ÉLÈVES NE SONT PAS PARMIS LES BORNES
+            Console.WriteLine("=========== SECTION DES ÉLÈVES QUI NE SONT PAS PARMIS LES BORNES de " + borne1 + " et " + borne2 + " ===========  \n");
+            for (int i = 0; i < tabEtudiants.Length; i++)
+            {
+                if (tabEtudiants[i].programme <= borne1 || tabEtudiants[i].programme >= borne2)
+                {
+                    Console.WriteLine("Le programme de l'élève '" + tabEtudiants[i].nom + tabEtudiants[i].prenom + "' n'est pas parmis les 2 bornes \n");
+                }
+            }
+            // POUR CRÉER DE L'ESPACEMENT
+            Console.WriteLine("\n \n \n");
+        }
+        
+
+        // MÉTHODE POUR TRIER LES ÉTUDIANTS EN FONCTION DE LEUR NOM DE FAMILLE
+        static void TrierNomFamille(EtudiantDuCollege[] etudiants)
+        {
+            for (int i = 0; i < etudiants.Length; i++)
+            {
+                
+            }
+        }
+
+
+        // MÉTHODE POUR LA VILLE DES ÉTUDIANTS
+        static void VilleEtudiant(EtudiantDuCollege[] etudiants)
+        {
+            string villeDonner;
+
+            // DEMANDE DE LA VILLE
+            Console.WriteLine("Entrez une ville de votre choix");
+            villeDonner = Console.ReadLine();
+
+            // SI LES ÉTUDIANTS VIVENT DANS LA VILLE DONNÉE EN PARAMÈTRE
+            Console.WriteLine("=========== SECTION DES ÉLÈVES QUI HABITENT DANS LA VILLE DONNÉE EN PARAMÈTRE ===========  \n");
+            for (int i = 0; i < etudiants.Length; i++)
+            {
+                if (villeDonner.ToUpper() == etudiants[i].adresse.ville.ToUpper())
+                {
+                    Console.WriteLine("L'élève '" + etudiants[i].nom + etudiants[i].prenom + "' habite dans la ville donnée en paramètre. \n");
+                }
+            }
+
+            // SI LES ÉTUDIANTS NE VIVENT PAS DANS LA VILLE DONNÉE EN PARAMÈTRE
+            Console.WriteLine("=========== SECTION DES ÉLÈVES QUI N'HABITENT PAS DANS LA VILLE DONNÉE EN PARAMÈTRE ===========  \n");
+            for (int i = 0; i < etudiants.Length; i++)
+            {
+                if (villeDonner.ToUpper() != etudiants[i].adresse.ville.ToUpper())
+                {
+                    Console.WriteLine("L'élève '" + etudiants[i].nom + etudiants[i].prenom + "' n'habite pas dans la ville donnée en paramètre. \n");
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
-            Etudiant etudiant1;
-            Etudiant etudiant2;
-            Etudiant etudiant3;
-            Etudiant etudiant4;
-            Etudiant etudiant5;
-            Etudiant etudiant6;
-            Etudiant etudiant7;
-            Etudiant etudiant8;
+            //
+            EtudiantDuCollege[] tabEtudiants = new EtudiantDuCollege[8];
+            for (int i = 0; i < tabEtudiants.Length; i++)
 
 
-            //              COMMENCEMENT DE IDENTIFICATEURS
-            //              COMMENCEMENT DE IDENTIFICATEURS
+                //              COMMENCEMENT DES IDENTIFICATEURS
+                //              COMMENCEMENT DES IDENTIFICATEURS
 
 
             // Déclaration des noms
-            etudiant1.nom = "Lara";
-            etudiant2.nom = "Ronny";
-            etudiant3.nom = "Andy";
-            etudiant4.nom = "Rich";
-            etudiant5.nom = "Bob";
-            etudiant6.nom = "Billy";
-            etudiant7.nom = "mario";
-            etudiant8.nom = "lucas";
+            tabEtudiants[0].nom = "Uch ";
+            tabEtudiants[1].nom = "Patate ";
+            tabEtudiants[2].nom = "Jungle ";
+            tabEtudiants[3].nom = "Ninja ";
+            tabEtudiants[4].nom = "Billy ";
+            tabEtudiants[5].nom = "Tourbillon ";
+            tabEtudiants[6].nom = "Lianne ";
+            tabEtudiants[7].nom = "Vani ";
 
             // Déclaration des prénoms
-            etudiant1.prenom = "Aral";
-            etudiant2.prenom = "Ynnor";
-            etudiant3.prenom = "Ydna";
-            etudiant4.prenom = "Hcir";
-            etudiant5.prenom = "Bob";
-            etudiant6.prenom = "Yllib";
-            etudiant7.prenom = "Oiram";
-            etudiant8.prenom = "Sacul";
+            tabEtudiants[0].prenom = "Richardnak";
+            tabEtudiants[1].prenom = "Pillée";
+            tabEtudiants[2].prenom = "George";
+            tabEtudiants[3].prenom = "Tortue";
+            tabEtudiants[4].prenom = "Bob";
+            tabEtudiants[5].prenom = "Katarina";
+            tabEtudiants[6].prenom = "Vusok";
+            tabEtudiants[7].prenom = "Krissa";
+
+
+            //              COMMENCEMENT DE LA DATE DE NAISSANCE
+            //              COMMENCEMENT DE LA DATE DE NAISSANCE
+
+            // Déclaration des jours
+            tabEtudiants[0].dateNaissance.jour = 01;
+            tabEtudiants[1].dateNaissance.jour = 01;
+            tabEtudiants[2].dateNaissance.jour = 01;
+            tabEtudiants[3].dateNaissance.jour = 01;
+            tabEtudiants[4].dateNaissance.jour = 01;
+            tabEtudiants[5].dateNaissance.jour = 01;
+            tabEtudiants[6].dateNaissance.jour = 01;
+            tabEtudiants[7].dateNaissance.jour = 01;
+
+            // Déclaration des mois
+            tabEtudiants[0].dateNaissance.mois = 12;
+            tabEtudiants[1].dateNaissance.mois = 12;
+            tabEtudiants[2].dateNaissance.mois = 12;
+            tabEtudiants[3].dateNaissance.mois = 12;
+            tabEtudiants[4].dateNaissance.mois = 12;
+            tabEtudiants[5].dateNaissance.mois = 12;
+            tabEtudiants[6].dateNaissance.mois = 12;
+            tabEtudiants[7].dateNaissance.mois = 12;
+
+            // Déclaration des années
+            tabEtudiants[0].dateNaissance.annee = 2000;
+            tabEtudiants[1].dateNaissance.annee = 2000;
+            tabEtudiants[2].dateNaissance.annee = 2000;
+            tabEtudiants[3].dateNaissance.annee = 2000;
+            tabEtudiants[4].dateNaissance.annee = 2000;
+            tabEtudiants[5].dateNaissance.annee = 2000;
+            tabEtudiants[6].dateNaissance.annee = 2000;
+            tabEtudiants[7].dateNaissance.annee = 2000;
+
 
             //              COMMENCEMENT DE SEXE
             //              COMMENCEMENT DE SEXE
@@ -93,70 +216,41 @@ namespace ExercicePratique4_RichardnakUCH
 
             Random rdmSexe = new Random();
             char[] sexes = { 'M', 'F' };
-            
+
 
             // Déclaration des sexes
-            etudiant1.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant2.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant3.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant8.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant4.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant5.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant6.sexe = sexes[rdmSexe.Next(sexes.Length)];
-            etudiant7.sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[0].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[1].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[2].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[3].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[4].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[5].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[6].sexe = sexes[rdmSexe.Next(sexes.Length)];
+            tabEtudiants[7].sexe = sexes[rdmSexe.Next(sexes.Length)];
 
 
             //              COMMENCEMENT DE PROGRAMME
             //              COMMENCEMENT DE PROGRAMME
+
 
             Random rdmProgramme = new Random();
-            int valProgramme = rdmProgramme.Next(1, 401);
-
-
-            // Déclaration des programmes
-            etudiant1.programme = rdmProgramme.Next(valProgramme);
-            etudiant2.programme = rdmProgramme.Next(valProgramme);
-            etudiant3.programme = rdmProgramme.Next(valProgramme);
-            etudiant4.programme = rdmProgramme.Next(valProgramme);
-            etudiant5.programme = rdmProgramme.Next(valProgramme);
-            etudiant6.programme = rdmProgramme.Next(valProgramme);
-            etudiant7.programme = rdmProgramme.Next(valProgramme);
-            etudiant8.programme = rdmProgramme.Next(valProgramme);
+            int valProgramme = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                valProgramme = rdmProgramme.Next(1, 401);
+            }
             
 
-            //              COMMENCEMENT DE LA DATE DE NAISSANCE
-            //              COMMENCEMENT DE LA DATE DE NAISSANCE
+            // Déclaration des programmes
+            tabEtudiants[0].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[1].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[2].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[3].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[4].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[5].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[6].programme = rdmProgramme.Next(valProgramme);
+            tabEtudiants[7].programme = rdmProgramme.Next(valProgramme);
 
-
-            // Déclaration des jours
-            etudiant1.dateNaissance.jour = 01;
-            etudiant2.dateNaissance.jour = 01;
-            etudiant3.dateNaissance.jour = 01;
-            etudiant4.dateNaissance.jour = 01;
-            etudiant5.dateNaissance.jour = 01;
-            etudiant6.dateNaissance.jour = 01;
-            etudiant7.dateNaissance.jour = 01;
-            etudiant8.dateNaissance.jour = 01;
-
-            // Déclaration des mois
-            etudiant1.dateNaissance.mois = 12;
-            etudiant2.dateNaissance.mois = 12;
-            etudiant3.dateNaissance.mois = 12;
-            etudiant4.dateNaissance.mois = 12;
-            etudiant5.dateNaissance.mois = 12;
-            etudiant6.dateNaissance.mois = 12;
-            etudiant7.dateNaissance.mois = 12;
-            etudiant8.dateNaissance.mois = 12;
-
-            // Déclaration des années
-            etudiant1.dateNaissance.annee = 2000;
-            etudiant2.dateNaissance.annee = 2000;
-            etudiant3.dateNaissance.annee = 2000;
-            etudiant4.dateNaissance.annee = 2000;
-            etudiant5.dateNaissance.annee = 2000;
-            etudiant6.dateNaissance.annee = 2000;
-            etudiant7.dateNaissance.annee = 2000;
-            etudiant8.dateNaissance.annee = 2000;
 
 
             //               CCOMMENCEMENT DES ADDRESSES
@@ -164,63 +258,49 @@ namespace ExercicePratique4_RichardnakUCH
 
 
             // Déclaration des numéros
-            etudiant1.adresse.numero = 2;
-            etudiant2.adresse.numero = 2;
-            etudiant3.adresse.numero = 2;
-            etudiant4.adresse.numero = 2;
-            etudiant5.adresse.numero = 2;
-            etudiant6.adresse.numero = 2;
-            etudiant7.adresse.numero = 2;
-            etudiant8.adresse.numero = 2;
+            tabEtudiants[0].adresse.numero = 420;
+            tabEtudiants[1].adresse.numero = 360;
+            tabEtudiants[2].adresse.numero = 1337;
+            tabEtudiants[3].adresse.numero = 3800;
+            tabEtudiants[4].adresse.numero = 2019;
+            tabEtudiants[5].adresse.numero = 9;
+            tabEtudiants[6].adresse.numero = 10;
+            tabEtudiants[7].adresse.numero = 21;
 
             // Déclaration de rues
-            etudiant1.adresse.rue = "Rue Sherbroom";
-            etudiant2.adresse.rue = "Rue Sherbroom";
-            etudiant3.adresse.rue = "Rue Sherbroom";
-            etudiant4.adresse.rue = "Rue Sherbroom";
-            etudiant5.adresse.rue = "Rue Sherbroom";
-            etudiant6.adresse.rue = "Rue Sherbroom";
-            etudiant7.adresse.rue = "Rue Sherbroom";
-            etudiant8.adresse.rue = "Rue Sherbroom";
+            tabEtudiants[0].adresse.rue = "boul Boulette";
+            tabEtudiants[1].adresse.rue = "avn de Viande";
+            tabEtudiants[2].adresse.rue = "boul Bouleversé";
+            tabEtudiants[3].adresse.rue = "rue Ruelle";
+            tabEtudiants[4].adresse.rue = "boul 3.1416-9";
+            tabEtudiants[5].adresse.rue = "boul Vanier";
+            tabEtudiants[6].adresse.rue = "autoroute 649";
+            tabEtudiants[7].adresse.rue = "Rue Sherbroom";
 
             // Déclaration de ville
-            etudiant1.adresse.ville = "ville Laval";
-            etudiant2.adresse.ville = "ville Laval";
-            etudiant3.adresse.ville = "ville Laval";
-            etudiant4.adresse.ville = "ville Laval";
-            etudiant5.adresse.ville = "ville Laval";
-            etudiant6.adresse.ville = "ville Laval";
-            etudiant7.adresse.ville = "ville Laval";
-            etudiant8.adresse.ville = "ville Laval";
+            tabEtudiants[0].adresse.ville = "Laval";
+            tabEtudiants[1].adresse.ville = "Laval";
+            tabEtudiants[2].adresse.ville = "Montreal";
+            tabEtudiants[3].adresse.ville = "Montreal";
+            tabEtudiants[4].adresse.ville = "Montreal";
+            tabEtudiants[5].adresse.ville = "Trois-Rivière";
+            tabEtudiants[6].adresse.ville = "Gatineau";
+            tabEtudiants[7].adresse.ville = "Longueuil";
 
             // Déclaration de Code Postal
-            etudiant1.adresse.codePostal = "Y3E T3R ";
-            etudiant2.adresse.codePostal = "Y3E T3R ";
-            etudiant3.adresse.codePostal = "Y3E T3R ";
-            etudiant4.adresse.codePostal = "Y3E T3R ";
-            etudiant5.adresse.codePostal = "Y3E T3R ";
-            etudiant6.adresse.codePostal = "Y3E T3R ";
-            etudiant7.adresse.codePostal = "Y3E T3R ";
-            etudiant8.adresse.codePostal = "Y3E T3R ";
+            tabEtudiants[0].adresse.codePostal = "Y3E T3R ";
+            tabEtudiants[1].adresse.codePostal = "3L1 T3S ";
+            tabEtudiants[2].adresse.codePostal = "1O1 0I0 ";
+            tabEtudiants[3].adresse.codePostal = "H3Y 5I5 ";
+            tabEtudiants[4].adresse.codePostal = "H1N 1R1 ";
+            tabEtudiants[5].adresse.codePostal = "R1P 505 ";
+            tabEtudiants[6].adresse.codePostal = "B0N 7R3 ";
+            tabEtudiants[7].adresse.codePostal = "R2D 2C3";
 
-            Console.WriteLine(etudiant1.sexe);
-            Console.WriteLine(etudiant2.sexe);
-            Console.WriteLine(etudiant3.sexe);
-            Console.WriteLine(etudiant4.sexe);
-            Console.WriteLine(etudiant5.sexe);
-            Console.WriteLine(etudiant6.sexe);
-            Console.WriteLine(etudiant7.sexe);
-            Console.WriteLine(etudiant8.sexe);
-
-            Console.WriteLine(etudiant1.programme);
-            Console.WriteLine(etudiant2.programme);
-            Console.WriteLine(etudiant3.programme);
-            Console.WriteLine(etudiant4.programme);
-            Console.WriteLine(etudiant5.programme);
-            Console.WriteLine(etudiant6.programme);
-            Console.WriteLine(etudiant7.programme);
-            Console.WriteLine(etudiant8.programme);
-
+            TabSexEtudiant(tabEtudiants);
+            TabProgrammeEtudiant(tabEtudiants);
+            TrierNomFamille(tabEtudiants);
+            VilleEtudiant(tabEtudiants);
         }
     }
 }
