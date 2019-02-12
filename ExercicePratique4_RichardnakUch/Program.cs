@@ -35,13 +35,12 @@ namespace ExercicePratique4_RichardnakUCH
             public int annee;
         }
     }
-         // FIN STRUCT ETUDIANT
 
 
     class Program
     {
         // MÉTHODE POUR CLASSER LE SEXE DES ÉTUDIANTS
-        static void TabSexEtudiant(EtudiantDuCollege[] etudiants)
+        static void ClasserSexeEtudiants(EtudiantDuCollege[] etudiants)
         {   
             // SI LES ÉLÈVES SONT MALES
             Console.WriteLine("=========== SECTION DES ÉLÈVES MALES ===========  \n");
@@ -62,26 +61,26 @@ namespace ExercicePratique4_RichardnakUCH
                 }
             }
             // POUR CRÉER DE L'ESPACEMENT
-            Console.WriteLine("\n \n \n");
+            Console.WriteLine("\n \n \n \n \n \n ");
         }
 
 
         // MÉTHODE POUR CLASSER LE PROGRAMME DES ÉTUDIANTS
-        static void TabProgrammeEtudiant(EtudiantDuCollege[] tabEtudiants)
+        static void LimiterProgrammeEtudiant(EtudiantDuCollege[] tabEtudiants)
         {
             int borne1 = 0;
             int borne2 = 0;
 
             // DEMANDE DES BORNES DES PROGRAMMES
             Console.WriteLine("Entrer les 2 bornes pour la limite des programmes \n");
-            Console.Write("Borne 1 : ");
+            Console.Write("Borne 1: ");
             borne1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Borne 2 : ");
+            Console.Write("Borne 2: ");
             borne2 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("\n");
 
             // SI LES ÉLÈVES SONT PARMIS LES BORNES
-            Console.WriteLine("=========== SECTION DES ÉLÈVES PARMIS LES BORNES de " + borne1 + " et " + borne2 + " ===========  \n");
+            Console.WriteLine("================== SECTION DES ÉLÈVES PARMIS LES BORNES DE " + borne1 + " ET " + borne2 + " ==================== \n");
             for (int i = 0; i < tabEtudiants.Length; i++)
             {
                 if (tabEtudiants[i].programme >= borne1  && tabEtudiants[i].programme <= borne2)
@@ -90,32 +89,41 @@ namespace ExercicePratique4_RichardnakUCH
                 }
             }
 
-            // SI LES ÉLÈVES NE SONT PAS PARMIS LES BORNES
-            Console.WriteLine("=========== SECTION DES ÉLÈVES QUI NE SONT PAS PARMIS LES BORNES de " + borne1 + " et " + borne2 + " ===========  \n");
+            // POUR CRÉER DE L'ESPACEMENT
+            Console.WriteLine("\n \n \n \n");
+
+            // POUR GARDER L'ÉCRAN
+            Console.WriteLine("Appuyez sur  'Enter' pour continuer");
+            Console.ReadLine();
+        }
+
+
+        //MÉTHODE POUR TRIER LES ÉTUDIANTS EN FONCTION DE LEUR NOM DE FAMILLE
+        static void TrierNomFamille(EtudiantDuCollege[] tabEtudiants)
+        {
+            // AFFICHAGE DES NOMS DE FAMILLES EN ORDRE DE DÉPART
+            Console.WriteLine(" =========== AFFICHAGE DES NOMS DE FAMILLES EN ORDRE DE DÉPART =========== \n");
             for (int i = 0; i < tabEtudiants.Length; i++)
             {
-                if (tabEtudiants[i].programme <= borne1 || tabEtudiants[i].programme >= borne2)
-                {
-                    Console.WriteLine("Le programme de l'élève '" + tabEtudiants[i].nom + tabEtudiants[i].prenom + "' n'est pas parmis les 2 bornes \n");
-                }
+                Console.WriteLine(tabEtudiants[i].nom + tabEtudiants[i].prenom + "\n");
+            }
+            Console.WriteLine("\n");
+
+            // AFFICHAGE DES NOMS DE FAMILLES TRIÉS EN ORDRE ALPHABÉTIQUE
+            Console.WriteLine(" =========== AFFICHAGE DES NOMS DE FAMILLES TRIÉS EN ORDRE ALPHABÉTIQUE =========== \n");
+            EtudiantDuCollege[] nomFamTrier= tabEtudiants.OrderBy(c => c.nom).ToArray(); // <== Fait avec l'aide de: https://stackoverflow.com/questions/1304278/how-to-sort-an-array-containing-class-objects-by-a-property-value-of-a-class-ins
+            for (int i = 0; i < tabEtudiants.Length; i++)
+            {
+                Console.WriteLine(nomFamTrier[i].nom + nomFamTrier[i].prenom + "\n");
             }
             // POUR CRÉER DE L'ESPACEMENT
-            Console.WriteLine("\n \n \n");
+            Console.WriteLine("\n \n \n \n");
         }
-        
-
-        // MÉTHODE POUR TRIER LES ÉTUDIANTS EN FONCTION DE LEUR NOM DE FAMILLE
-        static void TrierNomFamille(EtudiantDuCollege[] etudiants)
-        {
-            for (int i = 0; i < etudiants.Length; i++)
-            {
-                
-            }
-        }
+ 
 
 
         // MÉTHODE POUR LA VILLE DES ÉTUDIANTS
-        static void VilleEtudiant(EtudiantDuCollege[] etudiants)
+        static void MontrerEtudiantsDansVille(EtudiantDuCollege[] etudiants)
         {
             string villeDonner;
 
@@ -142,16 +150,18 @@ namespace ExercicePratique4_RichardnakUCH
                     Console.WriteLine("L'élève '" + etudiants[i].nom + etudiants[i].prenom + "' n'habite pas dans la ville donnée en paramètre. \n");
                 }
             }
+            Console.WriteLine("Fin du programme. Appuyez sur 'ENTER' pour continuer");
+            Console.ReadLine();
         }
 
+
+        // MAIN
         static void Main(string[] args)
         {
-            //
+            // Déclaration du Array d'étudiant
             EtudiantDuCollege[] tabEtudiants = new EtudiantDuCollege[8];
-            for (int i = 0; i < tabEtudiants.Length; i++)
+            
 
-
-                //              COMMENCEMENT DES IDENTIFICATEURS
                 //              COMMENCEMENT DES IDENTIFICATEURS
 
 
@@ -162,8 +172,8 @@ namespace ExercicePratique4_RichardnakUCH
             tabEtudiants[3].nom = "Ninja ";
             tabEtudiants[4].nom = "Billy ";
             tabEtudiants[5].nom = "Tourbillon ";
-            tabEtudiants[6].nom = "Lianne ";
-            tabEtudiants[7].nom = "Vani ";
+            tabEtudiants[6].nom = "Hassan ";
+            tabEtudiants[7].nom = "Giovanni ";
 
             // Déclaration des prénoms
             tabEtudiants[0].prenom = "Richardnak";
@@ -173,11 +183,11 @@ namespace ExercicePratique4_RichardnakUCH
             tabEtudiants[4].prenom = "Bob";
             tabEtudiants[5].prenom = "Katarina";
             tabEtudiants[6].prenom = "Vusok";
-            tabEtudiants[7].prenom = "Krissa";
+            tabEtudiants[7].prenom = "Dehbite";
 
 
             //              COMMENCEMENT DE LA DATE DE NAISSANCE
-            //              COMMENCEMENT DE LA DATE DE NAISSANCE
+
 
             // Déclaration des jours
             tabEtudiants[0].dateNaissance.jour = 01;
@@ -211,7 +221,6 @@ namespace ExercicePratique4_RichardnakUCH
 
 
             //              COMMENCEMENT DE SEXE
-            //              COMMENCEMENT DE SEXE
 
 
             Random rdmSexe = new Random();
@@ -229,7 +238,6 @@ namespace ExercicePratique4_RichardnakUCH
             tabEtudiants[7].sexe = sexes[rdmSexe.Next(sexes.Length)];
 
 
-            //              COMMENCEMENT DE PROGRAMME
             //              COMMENCEMENT DE PROGRAMME
 
 
@@ -252,8 +260,6 @@ namespace ExercicePratique4_RichardnakUCH
             tabEtudiants[7].programme = rdmProgramme.Next(valProgramme);
 
 
-
-            //               CCOMMENCEMENT DES ADDRESSES
             //               CCOMMENCEMENT DES ADDRESSES
 
 
@@ -297,10 +303,10 @@ namespace ExercicePratique4_RichardnakUCH
             tabEtudiants[6].adresse.codePostal = "B0N 7R3 ";
             tabEtudiants[7].adresse.codePostal = "R2D 2C3";
 
-            TabSexEtudiant(tabEtudiants);
-            TabProgrammeEtudiant(tabEtudiants);
+            ClasserSexeEtudiants(tabEtudiants);
+            LimiterProgrammeEtudiant(tabEtudiants);
             TrierNomFamille(tabEtudiants);
-            VilleEtudiant(tabEtudiants);
+            MontrerEtudiantsDansVille(tabEtudiants);
         }
     }
 }
